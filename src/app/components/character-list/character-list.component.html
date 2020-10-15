@@ -1,0 +1,27 @@
+<table class="table table">
+
+    <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Level</th>
+            <th>Race</th>
+            <th>Sex</th>
+            <th>Class</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let tempCharacter of characters">
+            <td class="align-middle">
+                <img src="{{ tempCharacter.characterClass.imageUrl }}" height="50" />
+            </td>
+            <td class="align-middle">{{ tempCharacter.name }}</td>
+            <td class="align-middle">{{ tempCharacter.level }}</td>
+            <td class="align-middle">{{ tempCharacter.race }}</td>
+            <td class="align-middle">{{ tempCharacter.sex }}</td>
+            <td class="align-middle">{{ tempCharacter.characterClass.name }}</td>
+        </tr>
+    </tbody>
+
+</table>
