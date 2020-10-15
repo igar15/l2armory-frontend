@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class CharacterService {
 
-  private baseUrl = "http://localhost:8080/api/characters?sort=level,desc&sort=name&projection=inLineCharacterClass";
+  private baseUrl = "http://localhost:8080/api/characters?sort=level,desc&sort=name";
 
   constructor(private httpClient: HttpClient) { }
 

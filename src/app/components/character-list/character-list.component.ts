@@ -4,7 +4,7 @@ import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
   selector: 'app-character-list',
-  templateUrl: './character-list.component.html',
+  templateUrl: './character-list-grid.component.html',
   styleUrls: ['./character-list.component.css']
 })
 export class CharacterListComponent implements OnInit {

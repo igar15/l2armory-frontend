@@ -519,12 +519,12 @@ input.au-input.au-input-xl{
 
 /* 
  * ----------------------------
- * Products List
+ * Characters List
  * ----------------------------
  */
 
-.product-box img {
-    width: 150px;
+.character-box img {
+    width: 50px;
 }
 
 .items select {
@@ -536,15 +536,20 @@ input.au-input.au-input-xl{
     outline: 0;
     margin-left: 5px;
 }
-.product-box{
+.character-box{
     margin-bottom:60px
 }
-.price{
+.class{
     margin:15px 0 0;
+    font-weight:800;
+    color:#40484b
+}
+.level{
+    margin:5px 0 0;
     font-weight:800;
     color:#0da8e4
 }
-.product-box h1{
+.character-box h1{
     font-size:18px;
     border-bottom:1px solid #ccc;
     padding-bottom:5px;
@@ -552,7 +557,7 @@ input.au-input.au-input-xl{
     padding-top:12px;
     margin-bottom:7px
 }
-.product-box h2{
+.character-box h2{
     font-size:15px;
     padding-bottom:0;
     font-weight:500;
@@ -710,12 +715,12 @@ table.table.table-bordered th{
 
 /* 
  * ----------------------------
- * Product Details
+ * Character Details
  * ----------------------------
  */
 
- .price{
-    margin:15px 0 0;
+ .level{
+    margin:5px 0 0;
     font-weight:800;
     color:#0da8e4
 }
@@ -973,7 +978,7 @@ footer ul li{
     .footer-pagination{
         text-align:center
     }
-    .product-box{
+    .character-box{
         text-align:centerg
     }
     .page-container{
