@@ -1,0 +1,12 @@
+<div class="menu-sidebar-content js-scrollbar1">
+    <nav class="navbar-sidebar">
+      <ul class="list-unstyled navbar-list">
+        <li>
+          <a routerLink="/characters" class="text-muted" routerLinkActive="active-link">All</a>
+        </li>
+        <li *ngFor="let tempCharacterClass of characterClasses">
+          <a routerLink="class/{{ tempCharacterClass.id }}" class="text-muted" routerLinkActive="active-link">{{ tempCharacterClass.name }}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>

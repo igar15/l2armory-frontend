@@ -1,6 +1,12 @@
 <div class="main-content">
     <div class="section-content section-content-p30">
         <div class="container-fluid">
+            
+            <div *ngIf="currentClassDescription != null" class="alert alert-dark col-md-12" role="alert">
+                {{ currentClassDescription }}
+            </div>
+            <br>
+
             <div class="row">
 
                 <!-- loop over the collection of characters-->
@@ -14,6 +20,12 @@
                     </div>
 
                 </div>
+
+                <!-- if characters empty then display a message -->
+                <div *ngIf="characters?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No characters found.
+                </div>
+
             </div>
         </div>
     </div>

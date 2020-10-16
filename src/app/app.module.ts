@@ -5,13 +5,28 @@ import { AppComponent } from './app.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CharacterService } from './services/character.service';
+import { Routes, RouterModule } from '@angular/router';
+import { CharacterClassMenuComponent } from './components/character-class-menu/character-class-menu.component';
+import { SearchComponent } from './components/search/search.component';
+
+const routes: Routes = [
+  {path: 'search/:keyWord', component: CharacterListComponent},
+  {path: 'class/:id', component: CharacterListComponent},
+  {path: 'class', component: CharacterListComponent},
+  {path: 'characters', component: CharacterListComponent},
+  {path: '', redirectTo: '/characters', pathMatch: 'full'},
+  {path: '**', redirectTo: '/characters', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    CharacterClassMenuComponent,
+    SearchComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule
   ],

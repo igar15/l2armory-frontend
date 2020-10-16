@@ -7,27 +7,9 @@
         <img src="assets/images/logo.png" alt="l2armory" class="img-responsive">
       </a>
     </div>
-    <div class="menu-sidebar-content js-scrollbar1">
-      <nav class="navbar-sidebar">
-        <ul class="list-unstyled navbar-list">
-          <li>
-            <a href="#">All</a>
-          </li>
-          <li>
-            <a href="#">Hawkeye</a>
-          </li>
-          <li>
-            <a href="#">Warlord</a>
-          </li>
-          <li>
-            <a href="#">Temple Knight</a>
-          </li>
-          <li>
-            <a href="#">Treasure Hunter</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+
+    <app-character-class-menu></app-character-class-menu>
+    
   </aside>
   <!-- END MENU SIDEBAR-->
 
@@ -37,12 +19,9 @@
       <div class="section-content section-content-p30">
         <div class="container-fluid">
           <div class="header-wrap">
-            <form class="form-header" onsubmit="return false;" method="GET">
-              <input class="au-input au-input-xl" type="text" name="search" placeholder="Search for data ..." />
-              <button class="au-btn-submit" type="submit">
-                Search
-              </button>
-            </form>
+
+            <app-search></app-search>
+            
             <div class="cart-area d-n">
               <a href="shopping-detail.html">
                 <div class="total">19.22 <span> 2</span> </div> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -56,7 +35,7 @@
     <!-- END HEADER DESKTOP-->
 
     <!-- MAIN CONTENT-->
-    <app-character-list></app-character-list>
+    <router-outlet></router-outlet>
 
   </div>
 
