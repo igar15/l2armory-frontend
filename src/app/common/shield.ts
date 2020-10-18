@@ -1,12 +1,5 @@
-export class Shield {
-    id: string;
-    name: string;
-    weight: number;
-    price: number;
-    imageUrl: string;
-    grade: string;
-    mpBonus: number;
+import { ArmorItem } from './armor-item';
+
+export class Shield extends ArmorItem {
     chanceToParry: number;
-    pdef: number;
-    mdef: number;
 }

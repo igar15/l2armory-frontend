@@ -1,10 +1,6 @@
-export class Weapon {
-    id: string;
-    name: string;
-    weight: number;
-    price: number;
-    imageUrl: string;
-    grade: string;
+import { Item } from './item';
+
+export class Weapon extends Item {
     soulshotsConsume: number;
     spiritshotsConsume: number;
     attackSpeed: string;
