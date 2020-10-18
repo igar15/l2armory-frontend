@@ -1,0 +1,188 @@
+<!-- <div [ngStyle]="{backgroundImage:'url(assets/images/inventory.jpg)'}"> -->
+<!-- <div class="detail-section"> -->
+<div class="container-fluid" [ngStyle]="{backgroundImage:'url(assets/images/inventory.jpg)'}">
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3 class="px-3">Name: {{ equipment.character.name }}</h3>
+    <h3 class="px-3">Class: {{ equipment.character.characterClass.name }}</h3>
+    <h3 class="px-3">Level: {{ equipment.character.level }}</h3>
+    <h3 class="px-3">Race: {{ equipment.character.race }}</h3>
+    <h3 class="px-3">Sex: {{ equipment.character.sex }}</h3>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.helmet?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.necklace?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <div class="row mt-3" style="height: 45px;">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-2 text-center text-light">
+                    {{ equipment.helmet?.name }}
+                </div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-2 text-center text-light">
+                    {{ equipment.necklace?.name }}
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <div class="row height: 150px">
+                <div class="col-md-1"></div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.weapon?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.chest?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.shield?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.earring1?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.earring2?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <div class="row  mt-3" style="height: 45px;">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2 text-center text-light">
+                    {{ equipment.weapon?.name }}
+                </div>
+                <div class="col-md-2 text-center text-light">
+                   {{ equipment.chest?.name }}
+                </div>
+                <div class="col-md-2 text-center text-light">
+                    {{ equipment.shield?.name }}
+                </div>
+                <div class="col-md-2 text-center text-light">
+                   {{ equipment.earring1?.name }}
+                </div>
+                <div class="col-md-2 text-center text-light">
+                   {{ equipment.earring2?.name }}
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.gloves?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.legs?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.boots?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.ring1?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="{{ equipment.ring2?.imageUrl }}" class="img-responsive">
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <div class="row  mt-3" style="height: 45px;">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2 text-center text-light">
+                    {{ equipment.gloves?.name }}
+                </div>
+                <div class="col-md-2 text-center text-light">
+                   {{ equipment.legs?.name }}
+                </div>
+                <div class="col-md-2 text-center text-light">
+                    {{ equipment.boots?.name }}
+                </div>
+                <div class="col-md-2 text-center text-light">
+                   {{ equipment.ring1?.name }}
+                </div>
+                <div class="col-md-2 text-center text-light">
+                   {{ equipment.ring2?.name }}
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+</div>
+<!-- </div> -->
+<!-- </div> -->

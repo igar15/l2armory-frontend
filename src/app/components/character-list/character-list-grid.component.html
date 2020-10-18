@@ -13,8 +13,15 @@
                 <div *ngFor="let tempCharacter of characters" class="col-md-3">
 
                     <div class="character-box">
-                        <img src="{{ tempCharacter.characterClass.imageUrl }}" class="img-responsive">
-                        <h1>{{ tempCharacter.name }}</h1>
+
+                        <a routerLink="/characters/{{ tempCharacter.id }}">
+                            <img src="{{ tempCharacter.characterClass.imageUrl }}" class="img-responsive">
+                        </a>
+                        <br>
+                        <a routerLink="/characters/{{ tempCharacter.id }}">
+                            <h1>{{ tempCharacter.name }}</h1>
+                        </a>
+
                         <div class="class">{{ tempCharacter.characterClass.name }}</div>
                         <div class="level">Level: {{ tempCharacter.level }}</div>
                     </div>

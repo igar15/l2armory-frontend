@@ -8,8 +8,10 @@ import { CharacterService } from './services/character.service';
 import { Routes, RouterModule } from '@angular/router';
 import { CharacterClassMenuComponent } from './components/character-class-menu/character-class-menu.component';
 import { SearchComponent } from './components/search/search.component';
+import { CharacterDetailsComponent } from './components/character-details/character-details.component';
 
 const routes: Routes = [
+  {path: 'characters/:id', component: CharacterDetailsComponent},
   {path: 'search/:keyWord', component: CharacterListComponent},
   {path: 'class/:id', component: CharacterListComponent},
   {path: 'class', component: CharacterListComponent},
@@ -23,7 +25,8 @@ const routes: Routes = [
     AppComponent,
     CharacterListComponent,
     CharacterClassMenuComponent,
-    SearchComponent
+    SearchComponent,
+    CharacterDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
