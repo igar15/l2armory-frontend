@@ -1,0 +1,88 @@
+<div class="detail-section">
+    <div class="container-fluid">
+
+        <h3>{{ accessory.name }}</h3>
+
+        <img src="{{ accessory.imageUrl }}" class="detail-img">
+
+        <h4 class="mt-3">Stats:</h4>
+
+        <div class="row px-3">
+            <div class="col-sm-1 border border-secondary">
+                Weight:
+            </div>
+            <div class="col-sm-3 border border-secondary">
+                {{ accessory.weight }}
+            </div>
+        </div>
+        <div class="row px-3">
+            <div class="col-sm-1 border border-secondary">
+                P. Def.:
+            </div>
+            <div class="col-sm-3 border border-secondary">
+                {{ accessory.pdef }}
+            </div>
+        </div>
+        <div class="row px-3">
+            <div class="col-sm-1 border border-secondary">
+                M. Def.:
+            </div>
+            <div class="col-sm-3 border border-secondary">
+                {{ accessory.mdef }}
+            </div>
+        </div>
+        <div class="row px-3">
+            <div class="col-sm-1 border border-secondary">
+                MP Bonus:
+            </div>
+            <div class="col-sm-3 border border-secondary">
+                {{ accessory.mpBonus }}
+            </div>
+        </div>
+        <div *ngIf="accessory.bonus != null" class="row px-3">
+            <div class="col-sm-1 border border-secondary">
+                Bonus:
+            </div>
+            <div class="col-sm-3 border border-secondary">
+                {{ accessory.bonus }}
+            </div>
+        </div>
+        <div class="row px-3">
+            <div class="col-sm-1 border border-secondary">
+                Base Price:
+            </div>
+            <div class="col-sm-3 border border-secondary">
+                {{ accessory.price | currency:' '}} adena
+            </div>
+        </div>
+        <div class="row px-3">
+            <div class="col-sm-1 border border-secondary">
+                Grade:
+            </div>
+            <div class="col-sm-3 border border-secondary">
+                {{ accessory.grade }}
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+
+
+        
+    </div>
+</div>
