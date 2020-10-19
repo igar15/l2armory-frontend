@@ -19,11 +19,27 @@ export class CharacterService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getCharacterListPaginate(thePage: number, thePageSize: number): Observable<GetResponseCharacters> {
+    // need to build URL for all characters based on page and size
+    const searchUrl = `${this.baseUrl}?projection=characterProjection&sort=level,desc&sort=name`
+                    + `&page=${thePage}&size=${thePageSize}`;
+
+    return this.httpClient.get<GetResponseCharacters>(searchUrl);
+  }
+
   getCharacterList(): Observable<Character[]> {
       // need to build URL for all characters
       const searchUrl = `${this.baseUrl}?projection=characterProjection&sort=level,desc&sort=name`;
 
       return this.getCharacters(searchUrl);
+  }
+
+  getCharacterListByClassIdPaginate(thePage: number, thePageSize: number, theClassId: number): Observable<GetResponseCharacters> {
+    // need to build URL based on class id, page and size
+    const searchUrl = `${this.baseUrl}/search/findAllByCharacterClassId?projection=characterProjection&id=${theClassId}&sort=level,desc&sort=name`
+                    + `&page=${thePage}&size=${thePageSize}`;
+
+    return this.httpClient.get<GetResponseCharacters>(searchUrl);
   }
 
   getCharacterListByClassId(theClassId: number): Observable<Character[]> {
@@ -38,6 +54,14 @@ export class CharacterService {
     const searchUrl = `${this.baseUrl}/search/findAllByNameContainingIgnoreCase?projection=characterProjection&name=${theKeyWord}&sort=level,desc&sort=name`;
 
     return this.getCharacters(searchUrl);
+  }
+
+  searchCharactersPaginate(thePage: number, thePageSize: number, theKeyWord: string): Observable<GetResponseCharacters> {
+    // need to build URL for all characters based on page and size
+    const searchUrl = `${this.baseUrl}/search/findAllByNameContainingIgnoreCase?projection=characterProjection&name=${theKeyWord}&sort=level,desc&sort=name`
+                    + `&page=${thePage}&size=${thePageSize}`;
+
+    return this.httpClient.get<GetResponseCharacters>(searchUrl);
   }
 
   private getCharacters(searchUrl: string): Observable<Character[]> {
@@ -70,6 +94,12 @@ export class CharacterService {
 interface GetResponseCharacters {
   _embedded: {
     characters: Character[];
+  },
+  page: {
+    size: number,
+    totalElements: number,
+    totalPages: number,
+    number: number
   }
 }
 

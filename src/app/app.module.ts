@@ -15,6 +15,8 @@ import { ShieldDetailsComponent } from './components/shield-details/shield-detai
 import { TypedArmorDetailsComponent } from './components/typed-armor-details/typed-armor-details.component';
 import { WeaponDetailsComponent } from './components/weapon-details/weapon-details.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 const routes: Routes = [
   {path: 'weapons/:id', component: WeaponDetailsComponent},
   {path: 'typed-armor/:type/:id', component: TypedArmorDetailsComponent},
@@ -46,7 +48,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [CharacterService],
   bootstrap: [AppComponent]

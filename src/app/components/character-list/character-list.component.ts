@@ -10,10 +10,18 @@ import { CharacterService } from 'src/app/services/character.service';
 })
 export class CharacterListComponent implements OnInit {
 
-  characters: Character[];
+  characters: Character[] = [];
   currentClassId: number;
+  previousClassId: number;
   currentClassDescription: string;
-  searchMode: boolean;
+  searchMode: boolean = false;
+
+  //new properties for pagination
+  thePageNumber: number = 1;
+  thePageSize: number = 2;
+  theTotalElements: number = 0;
+
+  previousKeyWord: string = null;
 
   constructor(private characterService: CharacterService, private route: ActivatedRoute) { }
 
@@ -43,11 +51,22 @@ export class CharacterListComponent implements OnInit {
     if (hasClassId) {
       //get the "id" param string. convert string to a number using the "+" symbol
       this.currentClassId = +this.route.snapshot.paramMap.get('id');
-      this.characterService.getCharacterListByClassId(this.currentClassId).subscribe(
-        data => {
-          this.characters = data;
-        }
-      )
+
+      //check if we have a different class than previous
+      //if we have a different class id than previous
+      //then set thePageNumber back to 1
+
+      if (this.previousClassId != this.currentClassId) {
+        this.thePageNumber = 1;
+      }
+
+      this.previousClassId = this.currentClassId;
+
+      console.log(`currentClassId=${this.currentClassId}, thePageNumber=${this.thePageNumber}`);
+
+      this.characterService.getCharacterListByClassIdPaginate(this.thePageNumber - 1, 
+                                                        this.thePageSize, this.currentClassId).subscribe(this.processResult());
+
       this.characterService.getCharacterClass(this.currentClassId).subscribe(
         data => {
           this.currentClassDescription = data.description;
@@ -55,23 +74,40 @@ export class CharacterListComponent implements OnInit {
       )
     }
     else {
-      this.characterService.getCharacterList().subscribe(
-        data => {
-          this.characters = data;
-        }
-      )
+      this.characterService.getCharacterListPaginate(this.thePageNumber - 1, this.thePageSize).subscribe(this.processResult());
     }
+  }
+
+  processResult() {
+    return data => {
+      this.characters = data._embedded.characters;
+      this.thePageNumber = data.page.number + 1;
+      this.thePageSize = data.page.size;
+      this.theTotalElements = data.page.totalElements;
+    }
+  }
+
+  updatePageSize(pageSize: number) {
+    this.thePageSize = pageSize;
+    this.thePageNumber = 1;
+    this.listCharacters();
   }
 
   handleSearchCharacters() {
     const theKeyWord: string = this.route.snapshot.paramMap.get('keyWord');
-    // now search for the characters using keyWord
-    this.characterService.searchCharacters(theKeyWord).subscribe(
-      data => {
-        this.characters = data;
-      }
-    );
 
+    //if we have a different keyword than previous
+    //then set thePageNumber to 1
+    if (this.previousKeyWord != theKeyWord) {
+      this.thePageNumber = 1;
+    }
+
+    this.previousKeyWord = theKeyWord;
+
+    // now search for the characters using keyWord
+    this.characterService.searchCharactersPaginate(this.thePageNumber - 1,
+                                                  this.thePageSize,
+                                                  theKeyWord).subscribe(this.processResult());
   }
 
 }
