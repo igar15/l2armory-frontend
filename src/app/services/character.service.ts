@@ -5,6 +5,7 @@ import { Character } from '../common/character';
 import { map } from 'rxjs/operators';
 import { CharacterClass } from '../common/character-class';
 import { Equipment } from '../common/equipment';
+import { Server } from '../common/server';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,8 @@ export class CharacterService {
   private baseUrl = "http://localhost:8080/api/characters";
 
   private classUrl = "http://localhost:8080/api/character-class?sort=name";
+
+  private serverUrl = "http://localhost:8080/api/servers?sort=name";
 
   private equipUrl = "http://localhost:8080/api/equipments/search/findByCharacterId?projection=equipmentProjection&";
 
@@ -89,6 +92,13 @@ export class CharacterService {
     return this.httpClient.get<Equipment>(searchUrl);
   }
 
+  getServers(): Observable<Server[]> {
+
+    return this.httpClient.get<GetResponseServers>(this.serverUrl).pipe(
+      map(response => response._embedded.servers)
+    );
+  }
+
 }
 
 interface GetResponseCharacters {
@@ -106,5 +116,11 @@ interface GetResponseCharacters {
 interface GetResponseCharacterClasses {
   _embedded: {
     characterClasses: CharacterClass[];
+  }
+}
+
+interface GetResponseServers {
+  _embedded: {
+    servers: Server[];
   }
 }

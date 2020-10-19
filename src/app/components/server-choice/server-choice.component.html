@@ -1,0 +1,4 @@
+<span class="text-light">Server: </span>
+<select>
+    <option *ngFor="let server of servers" [ngValue]="server">{{ server.name }}</option>
+</select>

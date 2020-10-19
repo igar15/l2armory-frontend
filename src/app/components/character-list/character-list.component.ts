@@ -11,6 +11,8 @@ import { CharacterService } from 'src/app/services/character.service';
 export class CharacterListComponent implements OnInit {
 
   characters: Character[] = [];
+  currentServerId: number = 100;
+  previousServerId: number = 100;
   currentClassId: number;
   previousClassId: number;
   currentClassDescription: string;

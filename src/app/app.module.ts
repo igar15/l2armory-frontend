@@ -16,6 +16,7 @@ import { TypedArmorDetailsComponent } from './components/typed-armor-details/typ
 import { WeaponDetailsComponent } from './components/weapon-details/weapon-details.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ServerChoiceComponent } from './components/server-choice/server-choice.component';
 
 const routes: Routes = [
   {path: 'weapons/:id', component: WeaponDetailsComponent},
@@ -43,7 +44,8 @@ const routes: Routes = [
     ArmorDetailsComponent,
     ShieldDetailsComponent,
     TypedArmorDetailsComponent,
-    WeaponDetailsComponent
+    WeaponDetailsComponent,
+    ServerChoiceComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
