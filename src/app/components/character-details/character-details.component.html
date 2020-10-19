@@ -1,6 +1,6 @@
-<!-- <div [ngStyle]="{backgroundImage:'url(assets/images/inventory.jpg)'}"> -->
-<!-- <div class="detail-section"> -->
-<div class="container-fluid" [ngStyle]="{backgroundImage:'url(assets/images/inventory.jpg)'}">
+<!-- <div class="container-fluid" [ngStyle]="{backgroundImage:'url(assets/images/inventory.jpg)'}"> -->
+
+<div class="container-fluid">
     <br>
     <br>
     <br>
@@ -23,7 +23,9 @@
 
                 </div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.helmet?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/armor/helmet/{{ equipment.helmet?.id }}">
+                        <img src="{{ equipment.helmet?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-2">
 
@@ -32,7 +34,9 @@
 
                 </div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.necklace?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/accessories/necklace/{{ equipment.necklace?.id }}">
+                        <img src="{{ equipment.necklace?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -48,8 +52,10 @@
                 <div class="col-md-2">
 
                 </div>
-                <div class="col-md-2 text-center text-light">
-                    {{ equipment.helmet?.name }}
+                <div class="col-md-2 text-center">
+                    <a routerLink="/armor/helmet/{{ equipment.helmet?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.helmet?.name }}
+                    </a>
                 </div>
                 <div class="col-md-2">
 
@@ -57,8 +63,10 @@
                 <div class="col-md-2">
 
                 </div>
-                <div class="col-md-2 text-center text-light">
-                    {{ equipment.necklace?.name }}
+                <div class="col-md-2 text-center">
+                    <a routerLink="/accessories/necklace/{{ equipment.necklace?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.necklace?.name }}
+                    </a>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -74,19 +82,29 @@
             <div class="row height: 150px">
                 <div class="col-md-1"></div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.weapon?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/weapons/{{ equipment.weapon?.id }}">
+                        <img src="{{ equipment.weapon?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.chest?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/typed-armor/chest/{{ equipment.chest?.id }}">
+                        <img src="{{ equipment.chest?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.shield?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/shields/{{ equipment.shield?.id }}">
+                        <img src="{{ equipment.shield?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.earring1?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/accessories/earring/{{ equipment.earring1?.id }}">
+                        <img src="{{ equipment.earring1?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.earring2?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/accessories/earring/{{ equipment.earring2?.id }}">
+                        <img src="{{ equipment.earring2?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -99,20 +117,30 @@
         <div class="col-md-8">
             <div class="row">
                 <div class="col-md-1"></div>
-                <div class="col-md-2 text-center text-light">
-                    {{ equipment.weapon?.name }}
+                <div class="col-md-2 text-center">
+                    <a routerLink="/weapons/{{ equipment.weapon?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.weapon?.name }}
+                    </a>
                 </div>
-                <div class="col-md-2 text-center text-light">
-                   {{ equipment.chest?.name }}
+                <div class="col-md-2 text-center">
+                    <a routerLink="/typed-armor/chest/{{ equipment.chest?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.chest?.name }}
+                    </a>
                 </div>
-                <div class="col-md-2 text-center text-light">
-                    {{ equipment.shield?.name }}
+                <div class="col-md-2 text-center">
+                    <a routerLink="/shields/{{ equipment.shield?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.shield?.name }}
+                    </a>
                 </div>
-                <div class="col-md-2 text-center text-light">
-                   {{ equipment.earring1?.name }}
+                <div class="col-md-2 text-center">
+                    <a routerLink="/accessories/earring/{{ equipment.earring1?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.earring1?.name }}
+                    </a>
                 </div>
-                <div class="col-md-2 text-center text-light">
-                   {{ equipment.earring2?.name }}
+                <div class="col-md-2 text-center">
+                    <a routerLink="/accessories/earring/{{ equipment.earring2?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.earring2?.name }}
+                    </a>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -128,19 +156,29 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.gloves?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/armor/gloves/{{ equipment.gloves?.id }}">
+                        <img src="{{ equipment.gloves?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.legs?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/typed-armor/legs/{{ equipment.legs?.id }}">
+                        <img src="{{ equipment.legs?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.boots?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/armor/boots/{{ equipment.boots?.id }}">
+                        <img src="{{ equipment.boots?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.ring1?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/accessories/ring/{{ equipment.ring1?.id }}">
+                        <img src="{{ equipment.ring1?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-2 text-center">
-                    <img src="{{ equipment.ring2?.imageUrl }}" class="img-responsive">
+                    <a routerLink="/accessories/ring/{{ equipment.ring2?.id }}">
+                        <img src="{{ equipment.ring2?.imageUrl }}" class="img-responsive">
+                    </a>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -153,20 +191,30 @@
         <div class="col-md-8">
             <div class="row">
                 <div class="col-md-1"></div>
-                <div class="col-md-2 text-center text-light">
-                    {{ equipment.gloves?.name }}
+                <div class="col-md-2 text-center">
+                    <a routerLink="/armor/gloves/{{ equipment.gloves?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.gloves?.name }}
+                    </a>
                 </div>
                 <div class="col-md-2 text-center text-light">
-                   {{ equipment.legs?.name }}
+                    <a routerLink="/typed-armor/legs/{{ equipment.legs?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.legs?.name }}
+                    </a>
                 </div>
-                <div class="col-md-2 text-center text-light">
-                    {{ equipment.boots?.name }}
+                <div class="col-md-2 text-center">
+                    <a routerLink="/armor/boots/{{ equipment.boots?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.boots?.name }}
+                    </a>
                 </div>
-                <div class="col-md-2 text-center text-light">
-                   {{ equipment.ring1?.name }}
+                <div class="col-md-2 text-center">
+                    <a routerLink="/accessories/ring/{{ equipment.ring1?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.ring1?.name }}
+                    </a>
                 </div>
-                <div class="col-md-2 text-center text-light">
-                   {{ equipment.ring2?.name }}
+                <div class="col-md-2 text-center">
+                    <a routerLink="/accessories/ring/{{ equipment.ring2?.id }}" class="text-secondary font-weight-bold">
+                        {{ equipment.ring2?.name }}
+                    </a>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -179,6 +227,9 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+
 
 
 
