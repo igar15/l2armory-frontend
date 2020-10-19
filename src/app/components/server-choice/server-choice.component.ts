@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Server } from 'src/app/common/server';
 import { CharacterService } from 'src/app/services/character.service';
 
@@ -11,7 +12,7 @@ export class ServerChoiceComponent implements OnInit {
 
   servers: Server[];
 
-  constructor(private characterService: CharacterService) { }
+  constructor(private characterService: CharacterService, private router: Router) { }
 
   ngOnInit(): void {
     this.listServers();
@@ -24,6 +25,11 @@ export class ServerChoiceComponent implements OnInit {
         this.servers = data;
       }
     );
+  }
+
+  navigateTo(serverId: number) {
+    this.characterService.currentServerId = serverId;
+    this.router.navigateByUrl(`/server/${serverId}`);
   }
 
 }

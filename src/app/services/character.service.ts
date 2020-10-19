@@ -14,17 +14,19 @@ export class CharacterService {
   
   private baseUrl = "http://localhost:8080/api/characters";
 
-  private classUrl = "http://localhost:8080/api/character-class?sort=name";
+  private classUrl = "http://localhost:8080/api/character-class?size=999&sort=name";
 
   private serverUrl = "http://localhost:8080/api/servers?sort=name";
 
   private equipUrl = "http://localhost:8080/api/equipments/search/findByCharacterId?projection=equipmentProjection&";
+  
+  currentServerId: number = 100;
 
   constructor(private httpClient: HttpClient) { }
 
-  getCharacterListPaginate(thePage: number, thePageSize: number): Observable<GetResponseCharacters> {
+  getCharacterListByServerIdPaginate(thePage: number, thePageSize: number, theServerId: number): Observable<GetResponseCharacters> {
     // need to build URL for all characters based on page and size
-    const searchUrl = `${this.baseUrl}?projection=characterProjection&sort=level,desc&sort=name`
+    const searchUrl = `${this.baseUrl}/search/findAllByServerId?projection=characterProjection&serverId=${theServerId}&sort=level,desc&sort=name`
                     + `&page=${thePage}&size=${thePageSize}`;
 
     return this.httpClient.get<GetResponseCharacters>(searchUrl);
@@ -37,9 +39,9 @@ export class CharacterService {
       return this.getCharacters(searchUrl);
   }
 
-  getCharacterListByClassIdPaginate(thePage: number, thePageSize: number, theClassId: number): Observable<GetResponseCharacters> {
+  getCharacterListByServerIdAndClassIdPaginate(thePage: number, thePageSize: number, theServerId: number, theClassId: number): Observable<GetResponseCharacters> {
     // need to build URL based on class id, page and size
-    const searchUrl = `${this.baseUrl}/search/findAllByCharacterClassId?projection=characterProjection&id=${theClassId}&sort=level,desc&sort=name`
+    const searchUrl = `${this.baseUrl}/search/findAllByServerIdAndCharacterClassId?projection=characterProjection&serverId=${theServerId}&id=${theClassId}&sort=level,desc&sort=name`
                     + `&page=${thePage}&size=${thePageSize}`;
 
     return this.httpClient.get<GetResponseCharacters>(searchUrl);
@@ -59,9 +61,9 @@ export class CharacterService {
     return this.getCharacters(searchUrl);
   }
 
-  searchCharactersPaginate(thePage: number, thePageSize: number, theKeyWord: string): Observable<GetResponseCharacters> {
+  searchCharactersByServerIdPaginate(thePage: number, thePageSize: number, theKeyWord: string, theServerId: number): Observable<GetResponseCharacters> {
     // need to build URL for all characters based on page and size
-    const searchUrl = `${this.baseUrl}/search/findAllByNameContainingIgnoreCase?projection=characterProjection&name=${theKeyWord}&sort=level,desc&sort=name`
+    const searchUrl = `${this.baseUrl}/search/findAllByServerIdAndNameContainingIgnoreCase?projection=characterProjection&serverId=${theServerId}&name=${theKeyWord}&sort=level,desc&sort=name`
                     + `&page=${thePage}&size=${thePageSize}`;
 
     return this.httpClient.get<GetResponseCharacters>(searchUrl);

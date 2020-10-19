@@ -11,7 +11,7 @@ export class CharacterClassMenuComponent implements OnInit {
 
   characterClasses: CharacterClass[];
 
-  constructor(private characterService: CharacterService) { }
+  constructor(public characterService: CharacterService) { }
 
   ngOnInit(): void {
     this.listCharacterClasses();

@@ -28,12 +28,23 @@ export class CharacterListComponent implements OnInit {
   constructor(private characterService: CharacterService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.currentServerId = this.characterService.currentServerId;
+    
     this.route.paramMap.subscribe(() => {
       this.listCharacters();
     });
   }
 
   listCharacters() {
+
+    const serverChoice = this.route.snapshot.paramMap.has('serverId');
+    if (serverChoice) {
+      this.currentServerId = +this.route.snapshot.paramMap.get('serverId');
+      if (this.currentServerId != this.previousServerId) {
+        this.thePageNumber = 1;
+        this.previousServerId = this.currentServerId;
+      }
+    }
 
     this.searchMode = this.route.snapshot.paramMap.has('keyWord');
 
@@ -64,10 +75,10 @@ export class CharacterListComponent implements OnInit {
 
       this.previousClassId = this.currentClassId;
 
-      console.log(`currentClassId=${this.currentClassId}, thePageNumber=${this.thePageNumber}`);
+      console.log(`currentClassId=${this.currentClassId}, thePageNumber=${this.thePageNumber}, theCurrentServerId=${this.currentServerId}`);
 
-      this.characterService.getCharacterListByClassIdPaginate(this.thePageNumber - 1, 
-                                                        this.thePageSize, this.currentClassId).subscribe(this.processResult());
+      this.characterService.getCharacterListByServerIdAndClassIdPaginate(this.thePageNumber - 1, 
+                                                        this.thePageSize, this.currentServerId, this.currentClassId).subscribe(this.processResult());
 
       this.characterService.getCharacterClass(this.currentClassId).subscribe(
         data => {
@@ -76,7 +87,8 @@ export class CharacterListComponent implements OnInit {
       )
     }
     else {
-      this.characterService.getCharacterListPaginate(this.thePageNumber - 1, this.thePageSize).subscribe(this.processResult());
+      console.log(`currentClassId=${this.currentClassId}, thePageNumber=${this.thePageNumber}, theCurrentServerId=${this.currentServerId}`);
+      this.characterService.getCharacterListByServerIdPaginate(this.thePageNumber - 1, this.thePageSize, this.currentServerId).subscribe(this.processResult());
     }
   }
 
@@ -107,9 +119,9 @@ export class CharacterListComponent implements OnInit {
     this.previousKeyWord = theKeyWord;
 
     // now search for the characters using keyWord
-    this.characterService.searchCharactersPaginate(this.thePageNumber - 1,
+    this.characterService.searchCharactersByServerIdPaginate(this.thePageNumber - 1,
                                                   this.thePageSize,
-                                                  theKeyWord).subscribe(this.processResult());
+                                                  theKeyWord, this.currentServerId).subscribe(this.processResult());
   }
 
 }

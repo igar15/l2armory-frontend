@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServerChoiceComponent } from './components/server-choice/server-choice.component';
 
 const routes: Routes = [
+  {path: 'server/:serverId', component: CharacterListComponent},
   {path: 'weapons/:id', component: WeaponDetailsComponent},
   {path: 'typed-armor/:type/:id', component: TypedArmorDetailsComponent},
   {path: 'shields/:id', component: ShieldDetailsComponent},
@@ -29,8 +30,8 @@ const routes: Routes = [
   {path: 'class/:id', component: CharacterListComponent},
   {path: 'class', component: CharacterListComponent},
   {path: 'characters', component: CharacterListComponent},
-  {path: '', redirectTo: '/characters', pathMatch: 'full'},
-  {path: '**', redirectTo: '/characters', pathMatch: 'full'}
+  {path: '', redirectTo: '/server/100', pathMatch: 'full'},
+  {path: '**', redirectTo: '/server/100', pathMatch: 'full'}
 ];
 
 @NgModule({
